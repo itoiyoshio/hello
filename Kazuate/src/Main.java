@@ -4,12 +4,14 @@ public class Main {
       Scanner sc = new Scanner(System.in);
       Random r = new Random();
       int number = r.nextInt(90)+10;
+      boolean check = false;
 
       for(int i = 0; i < 5; i++){
         System.out.print("数字を予想してください(10~99):");
         int user = sc.nextInt();
         if(user == number){
           System.out.println("当たり");
+          check = true;
           break;
         } else if(user > number){
           System.out.println("大きいです。");
@@ -24,6 +26,8 @@ public class Main {
         }
       }
       sc.close();
+      if(!check){
+        System.out.println("ゲームオーバーです。正解は"+number+"でした。残念。");
+      }
     }
-    
 }
